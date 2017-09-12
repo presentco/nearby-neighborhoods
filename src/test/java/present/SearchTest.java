@@ -11,8 +11,6 @@ import static org.junit.Assert.assertEquals;
 
 public class SearchTest {
 
-  private static final Location PRESENT = new Location(37.7904251,-122.4059803);
-
   @Test public void nearPresent() {
     List<String> expected = ImmutableList.of(
         "Union Square",
@@ -21,7 +19,32 @@ public class SearchTest {
         "Nob Hill",
         "Tenderloin"
     );
-    List<Neighborhood> actual = Search.near(PRESENT, 5);
+    List<Neighborhood> actual = Search.near(new Location(37.7904251, -122.4059803), 5);
+    assertEquals(expected, Lists.transform(actual, Neighborhood::name));
+  }
+
+  @Test public void nearThePaintedLadies() {
+    List<String> expected = ImmutableList.of(
+        "Haight-Ashbury",
+        "North of Panhandle",
+        "Anza Vista"
+    );
+    List<Neighborhood> actual = Search.near(new Location(37.7722899,-122.4421448), 3);
+    assertEquals(expected, Lists.transform(actual, Neighborhood::name));
+  }
+
+  @Test public void nearLegionOfHonor() {
+    List<String> expected = ImmutableList.of(
+        "Seacliff",
+        "Sunset District",
+        "Richmond District",
+        "Inner Sunset",
+        "San Francisco",
+        "Presidio Terrace",
+        "Jordan Park",
+        "Forest Hill"
+    );
+    List<Neighborhood> actual = Search.near(new Location(37.7747202, -122.5101659), 8);
     assertEquals(expected, Lists.transform(actual, Neighborhood::name));
   }
 
@@ -30,6 +53,6 @@ public class SearchTest {
   }
 
   @After public void printCounter() {
-    System.out.printf("Computed %s distances.", Location.distanceComputations.get());
+    System.out.printf("Computed %s distances.\n", Location.distanceComputations.get());
   }
 }
