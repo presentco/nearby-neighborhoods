@@ -24,7 +24,7 @@ passes.
 return the neighborhoods closest to a location so that [`SearchTest`](https://github.com/presentco/nearby-neighborhoods/blob/master/src/test/java/present/SearchTest.java)
 passes.
 
-3. Computing distances can add up! Make sure we're not performing duplicate distance computations during `Search.near()`.
+3. Computing distances can add up! Make sure we're not performing duplicate distance computations during `Search.near()`. How many distances do we compute?
 
 4. What's the time complexity of `Search.near()`? Can you beat O(n log(n))? Note: Indexing beforehand is allowed. Can you beat O(n)? Strut your stuff! 💃
 
