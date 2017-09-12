@@ -26,6 +26,6 @@ passes.
 
 3. Computing distances can add up! Make sure we're not performing duplicate distance computations during `Search.near()`. How many distances do we compute?
 
-4. What's the time complexity of `Search.near()`? Can you beat O(n log(n))? Note: Indexing beforehand is allowed. Can you beat O(n)? Strut your stuff! 💃
+4. What's the time complexity of `Search.near()`? Can you beat O(n log(n))? Note: We can index the neighborhoods up front. Can you beat O(n)? Strut your stuff! 💃
 
 5. This simple challenge included a few hundred neighborhoods. At Present, we need to sort through millions of user-generated circles in real time. What data structures and algorithms would you use to architect our backend?
