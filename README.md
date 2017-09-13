@@ -6,7 +6,7 @@ you'll search for _neighborhoods_ near a given location.
 
 ## Instructions
 
-**Please fork this repo, and submit your solution in the form of a pull request.** 
+Please fork this repo, and submit your solution in the form of a pull request.
 
 * You can build and run the code with [Maven](https://maven.apache.org/) or just about any IDE. We ❤️ [IntelliJ](https://www.jetbrains.com/idea/).
 * Feel free to use and demonstrate your knowledge of 3rd party libraries!
@@ -26,6 +26,6 @@ passes.
 
 3. Computing distances can add up! Make sure we're not performing duplicate distance computations during `Search.near()`. How many distances do we compute?
 
-4. What's the time complexity of `Search.near()`? Can you beat O(n log(n))? Note: We can index the neighborhoods up front. Can you beat O(n)? Strut your stuff! 💃
+4. What's the time complexity of `Search.near()`? It's reasonable assume that we'll query neighborhoods far more often than we'll add new neighborhoods. Feel free to pre-process the neighborhood data and make retrieval more efficient. Use whatever data structures, algorithms and libraries you like. Can you beat O(n log(n))? Can you achieve O(1)? Strut your stuff! 💃
 
 5. This simple challenge included a few hundred neighborhoods. At Present, we need to sort through millions of user-generated circles in real time. What data structures and algorithms would you use to architect our backend?
