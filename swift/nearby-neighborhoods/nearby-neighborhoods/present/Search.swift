@@ -2,6 +2,8 @@
 /**
    Searches Neighborhoods.ALL
 */
+import Foundation
+
 public class Search {
 
   /**
@@ -11,6 +13,28 @@ public class Search {
       - returns: the n nearest neighborhoods, ordered nearest to farthest
    */
   public static func near(location: Location, n: Int) -> [Neighborhood] {
-    fatalError("Please implement!")
+    var heap = Heap<Distance>(sort: { (a, b) -> Bool in
+      return a.distance > b.distance
+    })
+    
+    for neighborhood in Neighborhoods.ALL {
+      let distance = Distance(distance: location.distance(toLocation: neighborhood.location), neighborhood: neighborhood)
+      
+      if heap.count < n  {
+        heap.insert(distance)
+      } else {
+        if let peakDistance = heap.peek()?.distance, distance.distance < peakDistance {
+          heap.remove()
+          heap.insert(distance)
+        }
+      }
+    }
+    
+    let neighborhoods =  heap.elements.sorted { (a, b) -> Bool in
+      return a.distance < b.distance
+      }.map {$0.neighborhood}
+    
+    return neighborhoods
   }
+  
 }
