@@ -1,8 +1,8 @@
 package present;
 
+import com.google.common.collect.MinMaxPriorityQueue;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.PriorityQueue;
 
 /**
  * Searches {@link Neighborhoods#ALL}.
@@ -18,10 +18,11 @@ public class Search {
    */
   public static List<Neighborhood> near(Location location, int n) {
 
-    PriorityQueue<DistanceNeighborhood> nearestNeighborhoods = new PriorityQueue<>();
+    MinMaxPriorityQueue<DistanceNeighborhood> nearestNeighborhoods = MinMaxPriorityQueue
+        .maximumSize(n).create();
 
     for (Neighborhood neighborhood : Neighborhoods.ALL) {
-      addToOrderedList(location, nearestNeighborhoods, neighborhood);
+      addToOrderedList(location, nearestNeighborhoods, neighborhood, n);
     }
 
     return getNearestNeighborhoods(n, nearestNeighborhoods);
@@ -29,17 +30,24 @@ public class Search {
   }
 
   private static void addToOrderedList(Location location,
-      PriorityQueue<DistanceNeighborhood> nearestNeighborhoods, Neighborhood neighborhood) {
+      MinMaxPriorityQueue<DistanceNeighborhood> nearestNeighborhoods, Neighborhood neighborhood,
+      int n) {
 
-    Double distanceBetween = location.distanceTo(neighborhood.location());
+    double distanceBetween = location.distanceTo(neighborhood.location());
     DistanceNeighborhood distanceNeighborhood = new DistanceNeighborhood(distanceBetween,
         neighborhood);
 
-    nearestNeighborhoods.offer(distanceNeighborhood);
+    if (nearestNeighborhoods.size() < n) {
+      nearestNeighborhoods.offer(distanceNeighborhood);
+    } else if (nearestNeighborhoods.peekLast().getDistance() > distanceBetween) {
+      nearestNeighborhoods.removeLast();
+      nearestNeighborhoods.offer(distanceNeighborhood);
+    }
+
   }
 
   private static List<Neighborhood> getNearestNeighborhoods(int n,
-      PriorityQueue<DistanceNeighborhood> nearestNeighborhoods) {
+      MinMaxPriorityQueue<DistanceNeighborhood> nearestNeighborhoods) {
 
     List<Neighborhood> sortedNeighborhoods = new LinkedList<>();
 
