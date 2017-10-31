@@ -12,6 +12,7 @@ Please fork this repo, and submit your solution in the form of a pull request.
 * Feel free to use and demonstrate your knowledge of 3rd party libraries!
 * Our servers are multi-threaded. Your code should be scaleable and safe for concurrent use.
 * We follow [Google's Java Style Guide](https://google.github.io/styleguide/javaguide.html). Please do the same.
+* We write code once but read it many times. Please consider the maintainability of your solution.
 
 Now for the challenge:
 
