@@ -45,7 +45,7 @@
 		4399B8F71F6AC26A00CFA452 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4399B8F91F6AC26A00CFA452 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4399B8FE1F6AC26A00CFA452 /* nearby-neighborhoodsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "nearby-neighborhoodsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4399B9021F6AC26A00CFA452 /* LocationTest.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; name = LocationTest.swift; path = ../LocationTest.swift; sourceTree = "<group>"; tabWidth = 2; };
+		4399B9021F6AC26A00CFA452 /* LocationTest.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; name = LocationTest.swift; path = "nearby-neighborhoodsTests/LocationTest.swift"; sourceTree = "<group>"; tabWidth = 2; };
 		4399B9041F6AC26A00CFA452 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4399B9211F6AC43700CFA452 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		4399B9221F6AC43700CFA452 /* Neighborhood.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Neighborhood.swift; sourceTree = "<group>"; };
