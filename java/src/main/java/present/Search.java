@@ -1,9 +1,10 @@
 package present;
 
+import com.google.common.collect.MinMaxPriorityQueue;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.PriorityQueue;
 
 /**
  * Searches {@link Neighborhoods#ALL}.
@@ -26,7 +27,7 @@ public class Search {
     }
 
     KDTree kdTree = new KDTree(newList, n);
-    PriorityQueue<DistanceNeighborhood> nearestNeighborhoods = kdTree
+    MinMaxPriorityQueue<DistanceNeighborhood> nearestNeighborhoods = kdTree
         .findNearestNeighborhoods(location.latitude(), location.longitude());
 
     return getNearestNeighborhoods(n, nearestNeighborhoods);
@@ -35,7 +36,7 @@ public class Search {
 
 
   private static List<Neighborhood> getNearestNeighborhoods(int n,
-      PriorityQueue<DistanceNeighborhood> nearestNeighborhoods) {
+      MinMaxPriorityQueue<DistanceNeighborhood> nearestNeighborhoods) {
 
     List<Neighborhood> sortedNeighborhoods = new LinkedList<>();
 
