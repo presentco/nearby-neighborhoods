@@ -1,8 +1,9 @@
 package present;
 
-import com.google.common.collect.MinMaxPriorityQueue;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.PriorityQueue;
 
 /**
  * Searches {@link Neighborhoods#ALL}.
@@ -18,36 +19,23 @@ public class Search {
    */
   public static List<Neighborhood> near(Location location, int n) {
 
-    MinMaxPriorityQueue<DistanceNeighborhood> nearestNeighborhoods = MinMaxPriorityQueue
-        .maximumSize(n).create();
+    List<Neighborhood> newList = new ArrayList();
 
     for (Neighborhood neighborhood : Neighborhoods.ALL) {
-      addToOrderedList(location, nearestNeighborhoods, neighborhood, n);
+      newList.add(neighborhood);
     }
+
+    KDTree kdTree = new KDTree(newList, n);
+    PriorityQueue<DistanceNeighborhood> nearestNeighborhoods = kdTree
+        .findNearestNeighborhoods(location.latitude(), location.longitude());
 
     return getNearestNeighborhoods(n, nearestNeighborhoods);
 
   }
 
-  private static void addToOrderedList(Location location,
-      MinMaxPriorityQueue<DistanceNeighborhood> nearestNeighborhoods, Neighborhood neighborhood,
-      int n) {
-
-    double distanceBetween = location.distanceTo(neighborhood.location());
-    DistanceNeighborhood distanceNeighborhood = new DistanceNeighborhood(distanceBetween,
-        neighborhood);
-
-    if (nearestNeighborhoods.size() < n) {
-      nearestNeighborhoods.offer(distanceNeighborhood);
-    } else if (nearestNeighborhoods.peekLast().getDistance() > distanceBetween) {
-      nearestNeighborhoods.removeLast();
-      nearestNeighborhoods.offer(distanceNeighborhood);
-    }
-
-  }
 
   private static List<Neighborhood> getNearestNeighborhoods(int n,
-      MinMaxPriorityQueue<DistanceNeighborhood> nearestNeighborhoods) {
+      PriorityQueue<DistanceNeighborhood> nearestNeighborhoods) {
 
     List<Neighborhood> sortedNeighborhoods = new LinkedList<>();
 
