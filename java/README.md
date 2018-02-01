@@ -29,4 +29,4 @@ passes.
 
 4. What's the time complexity of `Search.near()`? It's reasonable assume that we'll query neighborhoods far more often than we'll add new neighborhoods. Feel free to pre-process the neighborhood data and make retrieval more efficient. Use whatever data structures, algorithms and libraries you like. Can you beat `O(n log(n))`? Can you achieve `O(1)`? Strut your stuff! 💃
 
-5. Create a server that returns a given number of neighborhoods closest to a given location. At Present, we use Protocol Buffers (and [Wire](https://github.com/square/wire)) for our server APIs.
+5. Create a server that returns a given number of neighborhoods closest to a given location. At Present, we use Protocol Buffers (and [Wire](https://github.com/square/wire)) for our server APIs, but feel free to use your preferred tools.
