@@ -6,7 +6,7 @@ you'll search for _neighborhoods_ near a given location.
 
 ## Instructions
 
-Please fork this repo, and submit your solution in the form of a pull request.
+Please fork this repo and send us a link to [a diff containing your solution](https://github.com/blog/683-cross-repository-compare-view).
 
 * You can build and run the code with [Maven](https://maven.apache.org/) or just about any IDE. We ❤️ [IntelliJ](https://www.jetbrains.com/idea/).
 * Feel free to use and demonstrate your knowledge of 3rd party libraries!
