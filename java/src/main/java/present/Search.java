@@ -1,5 +1,9 @@
 package present;
 
+import com.google.common.collect.MinMaxPriorityQueue;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -15,6 +19,32 @@ public class Search {
    * @return the {@code n} nearest neighborhoods, ordered nearest to farthest
    */
   public static List<Neighborhood> near(Location location, int n) {
-    throw new UnsupportedOperationException("Please implement!");
+
+    List<Neighborhood> newList = new ArrayList();
+
+    for (Neighborhood neighborhood : Neighborhoods.ALL) {
+      newList.add(neighborhood);
+    }
+
+    KDTree kdTree = new KDTree(newList, n);
+    MinMaxPriorityQueue<DistanceNeighborhood> nearestNeighborhoods = kdTree
+        .findNearestNeighborhoods(location.latitude(), location.longitude());
+
+    return getNearestNeighborhoods(n, nearestNeighborhoods);
+
   }
+
+
+  private static List<Neighborhood> getNearestNeighborhoods(int n,
+      MinMaxPriorityQueue<DistanceNeighborhood> nearestNeighborhoods) {
+
+    List<Neighborhood> sortedNeighborhoods = new LinkedList<>();
+
+    for (int i = 0; i < n; i++) {
+      sortedNeighborhoods.add(nearestNeighborhoods.poll().getNeighborhood());
+    }
+
+    return sortedNeighborhoods;
+  }
+
 }
