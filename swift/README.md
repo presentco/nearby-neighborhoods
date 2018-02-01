@@ -28,5 +28,4 @@ passes.
 
 4. What's the time complexity of `Search.near()`? It's reasonable assume that we'll query neighborhoods far more often than we'll add new neighborhoods. Feel free to pre-process the neighborhood data and make retrieval more efficient. Use whatever data structures, algorithms and libraries you like. Can you beat `O(n log(n))`? Can you achieve `O(1)`? Strut your stuff! 💃
 
-5. This simple challenge included a few hundred neighborhoods. At Present, we need to sort through millions of user-generated circles in real time. What data structures and algorithms would you use to architect our backend?
-
+5. Implement a map UI that plots the 5 neighborhoods closest to the center of the map. When the user moves the map, plot the 5 neighborhoods that are closest to the new center.
