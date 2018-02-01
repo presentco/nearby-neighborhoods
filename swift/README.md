@@ -1,6 +1,6 @@
 # 🏘 Nearby Neighborhoods
 
-Present is all about location, location, location! Our servers must efficiently find 
+Present is all about location, location, location! We must efficiently find 
 circles based on a user's location. During this challenge, instead of circles,
 you'll search for _neighborhoods_ near a given location. 
 
@@ -10,7 +10,6 @@ Please fork this repo, and submit your solution in the form of a pull request.
 
 * You can build and run the code with [XCode](https://developer.apple.com/xcode/) But feel free to use any IDE or editor that helps. We ❤️ [AppCode](https://www.jetbrains.com/objc/).
 * Feel free to use and demonstrate your knowledge of 3rd party libraries!
-* Our servers are multi-threaded. Your code should be scaleable and safe for concurrent use.
 * We write code once but read it many times. Please consider the maintainability of your solution.
 
 Now for the challenge:
